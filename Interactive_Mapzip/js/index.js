@@ -14,9 +14,20 @@ $(document).mousemove(function(e) {
 
 var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 if(ios) {
-  $('a').on('click touchend', function() { 
-    var link = $(this).attr('href');   
+  $('a').on('click touchend', function() {
+    var link = $(this).attr('href');
     window.open(link,'_blank');
     return false;
   });
 }
+
+// pointing from the svg object to fragments in the HTML doc.
+$('#arrondissements a').click(function(){
+  if ($(this).attr("xlink:href").substring(0,1) == "#"){
+    var the_id = $(this).attr("xlink:href");
+    $('html, body').animate({
+        scrollTop:$(the_id).offset().top
+    }, 'slow');
+  }
+    return false;
+});/**/
