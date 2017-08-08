@@ -1,6 +1,6 @@
 #us-map{
   display: block;
-  position: absolute;
+  position: center, top;
   top: 0;
   left: 0;
   width: 100%;
@@ -30,9 +30,68 @@ path:hover, circle:hover {
   padding: 5px;
   font-family: arial;
 }
+// styling info from french site
 
+/*
+The Following CSS isn't really relevant to the current experiment. The interesting part is located in the HTML.
+///////////////////////////////////////////////////////
+*/
+// Global values (Fonts, colors,...)
+//@import url(https://fonts.googleapis.com/css?family=Poller+One&text=1234567890PpAaris%20ondsmet%26);
+$font1: 'Arial black';
+$bgcolor: #ffffff;
+$htcolor: #000;
+$hcolor1: lighten($bgcolor, 10);
+$hcolor2: lighten($bgcolor, 40);
+
+$mfcolor-h: #c43e33; // coulour of an arrondissement when hovered
+$mtcolor:   #585858; // arrondissement's text coulour
+$mtcolor-h: #ffffff; // arrondissement's text coulour when hovered
+
+
+body{
+	background: $bgcolor;
+}
+
+/////////////////////////
+/* The map */
+//.wrapper {width:100%;}
+svg {
+  //background-color: #fff;
+  //width: 100%;
+  height: 100%;
+}
+
+#states a:hover {
+	path {fill: $mfcolor-h;}
+	text {fill: $mtcolor-h;}
+}
+#states text {
+	font-family:  $font1;
+	font-size: 20px;
+	font-weight: bold;
+	fill: $mtcolor;
+}
+
+/////////////////////////
+/* The page */
+
+h1 {
+ font-family: $font1;
+}
+
+#consulate-discriptions{
+  margin-bottom:7em;
+}
+
+// Fixed and animated header (absolutely NOT necessary) :
+%transition{
+  transition: all linear .3s;
+}
 header.page-title a{
-  font-family: Arial;
+  $up-color: $htcolor;
+  $up_x : -27px;
+  font-family: $font1;
   font-size: 2em;
   text-align: center;
   position: fixed;
@@ -42,9 +101,52 @@ header.page-title a{
   padding: 20px 9999px;
   padding-top: 10px;
   margin: 0 -9999px;
-
+  //border-top: 3px solid $up-color;//$bgcolor;
+  //background: linear-gradient(rgba($bgcolor, 0) 3px, rgba($bgcolor, 1) 3px);
+  color: $htcolor;
+  text-decoration: none;
+  @extend %transition;
+  &:before {
+    content:"";
+    position: absolute;
+    margin-top: -62px - $up_x;
+    margin-left: 8.775em;;
+    width: 0px;
+    height: 0px;
+    border: 12px solid transparent;
+    border-bottom: 16px solid $up-color;//$bgcolor;
+    @extend %transition;
   }
-
-#consulate-discriptions{
-    margin-botton:7em;
+  &:after {
+    content:"up";
+    position: absolute;
+    background-color: $up-color;
+    //display: block;
+    width: 32px;
+    height: 3px;
+    overflow: hidden;
+    margin-top: -29px - $up_x;
+    margin-left: -8.82em;
+    @extend %transition;
   }
+  &:hover{
+    $up-color: $hcolor1;
+    $up-translate: -3px;
+    text-decoration: underline;
+    &:after {
+      //background-color: $up-color;
+      transform: translateY($up-translate);
+    }
+    &:before {
+      //border-bottom-color:$up-color;
+      transform: translateY($up-translate);
+    }
+
+    border-top-color: $up-color;
+    //
+    /*color: $bgcolor;
+    background-color: $hcolor2;
+    //background: linear-gradient(rgba($hcolor2, 0) 3px, rgba($hcolor2, 1) 3px);/**/
+    //
+  }
+}
