@@ -10,7 +10,7 @@ path:hover, circle:hover {
   stroke: #ffffff !important;
   stroke-width:2px;
   stroke-linejoin: round;
-  fill: ##FFDF00 !important;
+  fill: #FFDF00 !important;
   cursor: pointer;
 }
 #path67 {
