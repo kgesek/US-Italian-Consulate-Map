@@ -10,7 +10,7 @@ path:hover, circle:hover {
   stroke: #ffffff !important;
   stroke-width:2px;
   stroke-linejoin: round;
-  fill: #ff0000 !important;
+  fill: ##FFDF00 !important;
   cursor: pointer;
 }
 #path67 {
@@ -25,7 +25,7 @@ path:hover, circle:hover {
   left: 0px;
   z-index: 1;
   background-color: #ffffff;
-  border: 2px solid #ffffff;
+  border: 2px solid #000000;
   border-radius: 5px;
   padding: 5px;
   font-family: arial;
@@ -37,14 +37,14 @@ The Following CSS isn't really relevant to the current experiment. The interesti
 ///////////////////////////////////////////////////////
 */
 // Global values (Fonts, colors,...)
-//@import url(https://fonts.googleapis.com/css?family=Poller+One&text=1234567890PpAaris%20ondsmet%26);
+//@import //url(https://fonts.googleapis.com/css?family=Poller+One&text=1234567890PpAaris%20ondsmet%26);
 $font1: 'Arial black';
 $bgcolor: #ffffff;
 $htcolor: #000;
-$hcolor1: lighten($bgcolor, 10);
-$hcolor2: lighten($bgcolor, 40);
+//$hcolor1: lighten($bgcolor, 10);
+//$hcolor2: lighten($bgcolor, 40);
 
-$mfcolor-h: #c43e33; // coulour of an arrondissement when hovered
+$mfcolor-h: #000; // coulour of an arrondissement when hovered
 $mtcolor:   #585858; // arrondissement's text coulour
 $mtcolor-h: #ffffff; // arrondissement's text coulour when hovered
 
@@ -81,20 +81,23 @@ h1 {
 }
 
 #consulate-discriptions{
-  margin-bottom:7em;
+  margin-bottom:8em;
+  text-align: center;
 }
 
 // Fixed and animated header (absolutely NOT necessary) :
 %transition{
   transition: all linear .3s;
 }
-header.page-title a{
-  $up-color: $htcolor;
+
+header.page-title a
+{
+  $up-color: #000000;
   $up_x : -27px;
   font-family: $font1;
   font-size: 2em;
   text-align: center;
-  position: fixed;
+  position: top;
   bottom: 0;
   width: 100%;
   background-color: $bgcolor;
@@ -103,50 +106,50 @@ header.page-title a{
   margin: 0 -9999px;
   //border-top: 3px solid $up-color;//$bgcolor;
   //background: linear-gradient(rgba($bgcolor, 0) 3px, rgba($bgcolor, 1) 3px);
-  color: $htcolor;
+  color: #000000;
   text-decoration: none;
   @extend %transition;
-  &:before {
-    content:"";
-    position: absolute;
-    margin-top: -62px - $up_x;
-    margin-left: 8.775em;;
-    width: 0px;
-    height: 0px;
-    border: 12px solid transparent;
-    border-bottom: 16px solid $up-color;//$bgcolor;
-    @extend %transition;
-  }
-  &:after {
-    content:"up";
-    position: absolute;
-    background-color: $up-color;
-    //display: block;
-    width: 32px;
-    height: 3px;
-    overflow: hidden;
-    margin-top: -29px - $up_x;
-    margin-left: -8.82em;
-    @extend %transition;
-  }
-  &:hover{
-    $up-color: $hcolor1;
-    $up-translate: -3px;
-    text-decoration: underline;
-    &:after {
-      //background-color: $up-color;
-      transform: translateY($up-translate);
+  //&:before {
+      content:"";
+      position: absolute;
+      margin-top: -62px - $up_x;
+      margin-left: 8.775em;;
+      width: 0px;
+      height: 0px;
+      border: 12px solid transparent;
+      border-bottom: 16px solid $up-color;//$bgcolor;
+      @extend %transition;
     }
-    &:before {
-      //border-bottom-color:$up-color;
-      transform: translateY($up-translate);
+  //&:after {
+      content:"up";
+      position: absolute;
+      background-color: $up-color;
+      //display: block;
+      width: 32px;
+      height: 3px;
+      overflow: hidden;
+      margin-top: -29px - $up_x;
+      margin-left: -8.82em;
+      @extend %transition;
     }
+    //&:hover{
+      $up-color: $hcolor1;
+      $up-translate: -3px;
+      text-decoration: underline;
+      &:after {
+        //background-color: $up-color;
+        transform: translateY($up-translate);
+      }
+      &:before {
+        //border-bottom-color:$up-color;
+        transform: translateY($up-translate);
+      }
 
-    border-top-color: $up-color;
-    //
-    /*color: $bgcolor;
-    background-color: $hcolor2;
-    //background: linear-gradient(rgba($hcolor2, 0) 3px, rgba($hcolor2, 1) 3px);/**/
-    //
-  }
+      border-top-color: $up-color;
+      //
+      /*color: $bgcolor;
+      background-color: $hcolor2;
+      //background: linear-gradient(rgba($hcolor2, 0) 3px, rgba($hcolor2, 1) 3px);/**/
+      //
+    }
 }
